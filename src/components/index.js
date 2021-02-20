@@ -1,4 +1,1 @@
-export * from './PageTitle/PageTitle';
-export * from './ContentSection/ContentSection';
-export * from './MainLink/MainLink';
-export * from './CommitItem/CommitItem';
+export { Task } from './Task/Task';

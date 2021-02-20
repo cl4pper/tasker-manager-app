@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // STYLE
 import './Text.scss';
 
-const Text = props => {
+const Text = (props) => {
 	const { content, tall, small, bold, italic, underline, center, right } = props;
 
 	return (
@@ -25,14 +25,14 @@ const Text = props => {
 };
 
 Text.propTypes = {
-  content: PropTypes.string.isRequired,
-  tall: PropTypes.bool,
-  small: PropTypes.bool,
-  bold: PropTypes.bool,
-  italic: PropTypes.bool,
-  underline: PropTypes.bool,
-  center: PropTypes.bool,
-  right: PropTypes.bool,
+	content: PropTypes.string.isRequired,
+	tall: PropTypes.bool,
+	small: PropTypes.bool,
+	bold: PropTypes.bool,
+	italic: PropTypes.bool,
+	underline: PropTypes.bool,
+	center: PropTypes.bool,
+	right: PropTypes.bool
 };
 
 export { Text };

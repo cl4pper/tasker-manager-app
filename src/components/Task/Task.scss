@@ -1,0 +1,13 @@
+.Task {
+	max-width: 300px;
+	padding: spacing("md") spacing("sm");
+	word-break: break-all;
+	white-space: wrap;
+	cursor: pointer;
+	display: grid;
+	grid-template-columns: 15px 200px;
+
+	&__content {
+		margin-left: spacing("xs");
+	}
+}

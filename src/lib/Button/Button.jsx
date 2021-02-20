@@ -8,7 +8,7 @@ import './Button.scss';
 // COMPONENTS
 import { Text } from '@lib';
 
-const Button = props => {
+const Button = (props) => {
 	const { label, onClick, secondary, loading } = props;
 
 	return (
@@ -17,15 +17,8 @@ const Button = props => {
 				'Button--secondary': secondary
 			})}
 			onClick={onClick}>
-			{loading && (
-				A
-			)}
-			{!loading && (
-				<Text
-					bold
-					center
-					content={label} />
-			)}
+			{loading && A}
+			{!loading && <Text bold center content={label} />}
 		</button>
 	);
 };
@@ -34,7 +27,7 @@ Button.propTypes = {
 	label: PropTypes.string.isRequired,
 	secondary: PropTypes.bool,
 	loading: PropTypes.bool,
-	onClick: PropTypes.func,
+	onClick: PropTypes.func
 };
 
 export { Button };
