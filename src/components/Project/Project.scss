@@ -1,0 +1,28 @@
+.Project {
+	width: 320px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	&__topbar {
+		height: 40px;
+		border-radius: 4px 4px 0 0;
+		background-color: #000;
+	}
+
+	&__taskList {
+		margin: 0;
+		padding: spacing("sm") spacing("sm");
+		border: 1px solid #000;
+		border-radius: 0 0 4px 4px;
+		list-style: none;
+
+		&--empty {
+			text-align: center;
+		}
+	}
+
+	&__taskItem {
+		margin: spacing("sm") 0;
+	}
+}

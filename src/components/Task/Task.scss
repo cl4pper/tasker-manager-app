@@ -1,13 +1,17 @@
+$cardWidth: 300px;
+$contentWidth: $cardWidth * 0.8;
+
 .Task {
-	max-width: 300px;
-	padding: spacing("md") spacing("sm");
-	word-break: break-all;
-	white-space: wrap;
+	max-width: $cardWidth;
+	padding: spacing("sm");
+	border: 1px solid $color-dark;
+	border-radius: 4px;
+	word-break: normal;
 	cursor: pointer;
-	display: grid;
-	grid-template-columns: 15px 200px;
+	display: flex;
 
 	&__content {
-		margin-left: spacing("xs");
+		width: $contentWidth;
+		margin-left: spacing("sm");
 	}
 }

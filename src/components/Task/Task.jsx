@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // STYLE
 import './Task.scss';
@@ -6,7 +7,9 @@ import './Task.scss';
 // COMPONENTS
 import { Checkbox, Text } from '@lib';
 
-const Task = () => {
+const Task = (props) => {
+	const { content } = props;
+
 	const [done, setDone] = useState(false);
 
 	function updateCardStatus() {
@@ -19,10 +22,14 @@ const Task = () => {
 				<Checkbox checked={done} />
 			</div>
 			<div className="Task__content">
-				<Text content="Task" />
+				<Text content={content} />
 			</div>
 		</div>
 	);
+};
+
+Task.propTypes = {
+	content: PropTypes.string.isRequired
 };
 
 export { Task };
