@@ -14,8 +14,11 @@ module.exports = {
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),
       '@containers': path.resolve(__dirname, 'src/containers'),
+      '@lib': path.resolve(__dirname, 'src/lib'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@assets': path.resolve(__dirname, 'src/assets'),
+      '@icons': path.resolve(__dirname, 'src/assets/icons'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@utils': path.resolve(__dirname, 'src/utils')
     }
@@ -39,10 +42,10 @@ module.exports = {
 				test: /\.scss$/,
 				use: [
 					{
- loader: 'style-loader' 
+ loader: 'style-loader'
 },
 					{
- loader: 'css-loader' 
+ loader: 'css-loader'
 },
 					{
             loader: 'sass-loader',
@@ -56,10 +59,10 @@ module.exports = {
 				test: /\.(jpeg|jpg|png|gif|woff|woff2|eot|ttf)$/,
 				use: [
 					{
- loader: 'file-loader' 
+ loader: 'file-loader'
 },
 					{
- loader: 'url-loader' 
+ loader: 'url-loader'
 }
 				]
       },
@@ -67,10 +70,10 @@ module.exports = {
         test: /\.svg$/,
         use: [
           {
- loader: '@svgr/webpack' 
+ loader: '@svgr/webpack'
 },
           {
- loader: 'url-loader' 
+ loader: 'url-loader'
 }
         ]
       }
