@@ -1,0 +1,21 @@
+
+@mixin responsive($size: "view") {
+	$transitSize: 480px;
+
+	@if $size == "view" {
+		width: 100%;
+
+		@media (max-width: $transitSize) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: red;
+		}
+
+		@media (min-width: $transitSize) {
+			display: flex;
+			align-items: center;
+			background-color: black;
+		}
+	}
+}
