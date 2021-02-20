@@ -18,7 +18,7 @@ const Button = (props) => {
 			})}
 			onClick={onClick}>
 			{loading && A}
-			{!loading && <Text bold center content={label} />}
+			{!loading && <Text bold center content={label} small />}
 		</button>
 	);
 };

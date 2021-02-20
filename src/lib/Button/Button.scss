@@ -1,10 +1,10 @@
-$button-heigh: 40px;
+$button-heigh: 32px;
 
 %ButtonStructure {
 	min-width: 100px;
 	height: $button-heigh;
 	border-radius: $button-heigh * 0.15;
-	padding: spacing("sm") spacing("lg");
+	padding: spacing("xs") spacing("lg");
 	box-shadow: 0 1px 4px $color-primary;
 	border: 2px solid $color-primary;
 	box-sizing: border-box;

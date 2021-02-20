@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -6,11 +6,13 @@ import classNames from 'classnames';
 import './Project.scss';
 
 // COMPONENTS
-import { Text, Button } from '@lib';
+import { Text, Button, TextInput } from '@lib';
 import { Task } from '@components';
 
 const Project = (props) => {
 	const { tasks, title } = props;
+
+	const [newTask, setNewTask] = useState('');
 
 	const renderList = () => {
 		return (
@@ -43,7 +45,14 @@ const Project = (props) => {
 			{tasks.length ? renderList() : renderEmptyList()}
 			<div className="Project__bottom">
 				<div className="Project__bottomContent">
-					<Text content={title} tall />
+					<div className="Project__input">
+						<TextInput
+							id="inputText-project"
+							placeholder="Task"
+							errorLable="Incorrect input"
+							onChange={(e) => setNewTask(e)}
+						/>
+					</div>
 					<Button label="Add" />
 				</div>
 			</div>
