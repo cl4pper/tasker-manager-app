@@ -16,7 +16,7 @@ class AppContainer extends Component {
 		return (
 			<div className="app">
 				{console.log(taskListMock)}
-				<Project tasks={taskListMock} />
+				<Project title="Project" tasks={taskListMock} />
 			</div>
 		);
 	}

@@ -10,7 +10,7 @@ import { Text } from '@lib';
 import { Task } from '@components';
 
 const Project = (props) => {
-	const { tasks } = props;
+	const { tasks, title } = props;
 
 	const renderList = () => {
 		return (
@@ -38,7 +38,7 @@ const Project = (props) => {
 	return (
 		<div className="Project">
 			<div className="Project__topbar">
-				<Text content="Project" />
+				<Text content={title} tall />
 			</div>
 			{tasks.length ? renderList() : renderEmptyList()}
 		</div>
@@ -46,7 +46,8 @@ const Project = (props) => {
 };
 
 Project.propTypes = {
-	tasks: PropTypes.array
+	tasks: PropTypes.array,
+	title: PropTypes.string
 };
 
 export { Project };

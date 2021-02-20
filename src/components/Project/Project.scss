@@ -1,19 +1,24 @@
+$baseColor: $color-grey;
+
 .Project {
 	width: 320px;
+	border: 1px solid $baseColor;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px $baseColor;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 
 	&__topbar {
-		height: 40px;
+		padding: spacing("md") spacing("sm");
+		color: $color-secondary;
 		border-radius: 4px 4px 0 0;
-		background-color: #000;
+		background-color: $baseColor;
 	}
 
 	&__taskList {
 		margin: 0;
 		padding: spacing("sm") spacing("sm");
-		border: 1px solid #000;
 		border-radius: 0 0 4px 4px;
 		list-style: none;
 
