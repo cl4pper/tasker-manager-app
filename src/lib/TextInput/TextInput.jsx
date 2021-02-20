@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 // STYLE
 import './TextInput.scss';
 
-const TextInput = props => {
+const TextInput = (props) => {
 	const { id, label, placeholder, error, errorLabel, disabled, onChange } = props;
 
 	return (
 		<div className="TextInput">
-			{ label && <p className="TextInput__label">{label}</p> }
+			{label && <p className="TextInput__label">{label}</p>}
 			<input
 				id={id}
 				className="TextInput__input"
@@ -29,7 +29,7 @@ TextInput.propTypes = {
 	error: PropTypes.bool,
 	errorLabel: PropTypes.string,
 	disabled: PropTypes.bool,
-	onChange: PropTypes.func,
+	onChange: PropTypes.func
 };
 
 export { TextInput };

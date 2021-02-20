@@ -14,15 +14,46 @@ const Project = (props) => {
 
 	const [newTask, setNewTask] = useState('');
 
-	const renderList = () => {
+	const renderOpenList = () => {
 		return (
-			<ul className="Project__taskList">
-				{tasks.map((task, idx) => (
-					<li className="Project__taskItem" key={idx}>
-						<Task content={task.content} />
-					</li>
-				))}
-			</ul>
+			<>
+				<Text content="To Do" bold tall />
+				<ul className="Project__taskList">
+					{tasks
+						.filter((task) => task.status !== 'done')
+						.map((task, idx) => (
+							<li className="Project__taskItem" key={idx}>
+								<Task content={task.content} />
+							</li>
+						))}
+				</ul>
+			</>
+		);
+	};
+
+	const renderDoneList = () => {
+		return (
+			<>
+				<Text content="Done" bold tall />
+				<ul className="Project__taskList">
+					{tasks
+						.filter((task) => task.status === 'done')
+						.map((task, idx) => (
+							<li className="Project__taskItem" key={idx}>
+								<Task content={task.content} />
+							</li>
+						))}
+				</ul>
+			</>
+		);
+	};
+
+	const renderLists = () => {
+		return (
+			<div className="Project__lists">
+				{renderOpenList()}
+				{renderDoneList()}
+			</div>
 		);
 	};
 
@@ -42,7 +73,7 @@ const Project = (props) => {
 			<div className="Project__top">
 				<Text content={title} tall />
 			</div>
-			{tasks.length ? renderList() : renderEmptyList()}
+			{tasks.length ? renderLists() : renderEmptyList()}
 			<div className="Project__bottom">
 				<div className="Project__bottomContent">
 					<div className="Project__input">

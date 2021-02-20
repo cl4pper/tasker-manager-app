@@ -13,9 +13,8 @@ $baseColor: $color-dark;
 		background-color: $baseColor;
 	}
 
-	&__taskList {
-		margin: 0;
-		padding: 0 spacing("sm");
+	&__lists {
+		padding: spacing("sm");
 		border-left: 1px solid $baseColor;
 		border-right: 1px solid $baseColor;
 		list-style: none;
@@ -25,6 +24,13 @@ $baseColor: $color-dark;
 		}
 	}
 
+	&__taskList {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		margin-bottom: spacing("lg");
+	}
+
 	&__taskItem {
 		margin: spacing("sm") 0;
 	}
@@ -32,7 +38,6 @@ $baseColor: $color-dark;
 	&__bottom {
 		@include setBorderRadius("bottom", "md");
 		padding: 0 spacing("md");
-		padding-top: spacing("md");
 		border-left: 1px solid $baseColor;
 		border-right: 1px solid $baseColor;
 		border-bottom: 1px solid $baseColor;
