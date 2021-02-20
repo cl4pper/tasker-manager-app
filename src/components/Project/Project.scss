@@ -1,25 +1,23 @@
-$baseColor: $color-grey;
+$baseColor: $color-dark;
 
 .Project {
 	width: 320px;
-	border: 1px solid $baseColor;
-	border-radius: 4px;
-	box-shadow: 0 2px 4px $baseColor;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 
-	&__topbar {
+	&__top {
+		@include setBorderRadius("top", "md");
 		padding: spacing("md") spacing("sm");
 		color: $color-secondary;
-		border-radius: 4px 4px 0 0;
 		background-color: $baseColor;
 	}
 
 	&__taskList {
 		margin: 0;
-		padding: spacing("sm") spacing("sm");
-		border-radius: 0 0 4px 4px;
+		padding: 0 spacing("sm");
+		border-left: 1px solid $baseColor;
+		border-right: 1px solid $baseColor;
 		list-style: none;
 
 		&--empty {
@@ -29,5 +27,21 @@ $baseColor: $color-grey;
 
 	&__taskItem {
 		margin: spacing("sm") 0;
+	}
+
+	&__bottom {
+		@include setBorderRadius("bottom", "md");
+		padding: 0 spacing("md");
+		border-left: 1px solid $baseColor;
+		border-right: 1px solid $baseColor;
+		border-bottom: 1px solid $baseColor;
+		color: $color-secondary;
+	}
+
+	&__bottomContent {
+		padding: spacing("sm") 0;
+		border-top: 1px solid $baseColor;
+		display: flex;
+		align-items: center;
 	}
 }

@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import './Project.scss';
 
 // COMPONENTS
-import { Text } from '@lib';
+import { Text, Button } from '@lib';
 import { Task } from '@components';
 
 const Project = (props) => {
@@ -37,10 +37,16 @@ const Project = (props) => {
 
 	return (
 		<div className="Project">
-			<div className="Project__topbar">
+			<div className="Project__top">
 				<Text content={title} tall />
 			</div>
 			{tasks.length ? renderList() : renderEmptyList()}
+			<div className="Project__bottom">
+				<div className="Project__bottomContent">
+					<Text content={title} tall />
+					<Button label="Add" />
+				</div>
+			</div>
 		</div>
 	);
 };

@@ -25,7 +25,11 @@
   }
 }
 
-@function border($size: "md") {
+@function borderSize($size: "md") {
+
+	@if $size == "xs" {
+    @return 1px;
+  }
 
   @if $size == "sm" {
     @return 2px;
@@ -37,5 +41,25 @@
 
   @if $size == "lg" {
     @return 8px;
+  }
+}
+
+@mixin setBorderRadius($pos: "all", $size: "xs") {
+  border-radius: borderSize($size);
+
+  @if $pos == "top" {
+    border-radius: borderSize($size) borderSize($size) 0 0;
+  }
+
+  @if $pos == "left" {
+    border-radius: borderSize($size) 0 0 borderSize($size);
+  }
+
+  @if $pos == "right" {
+    border-radius: 0 borderSize($size) borderSize($size) 0;
+	}
+
+	@if $pos == "bottom" {
+    border-radius: 0 0 borderSize($size) borderSize($size);
   }
 }
