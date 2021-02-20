@@ -8,15 +8,18 @@ $font-family-Teko: 'Teko', sans-serif;
   font-family: $font-family-Roboto;
 
   @if $size == "sm" {
-    font-size: 16px;
+		font-size: 12px;
+		line-height: 12px;
   }
 
   @if $size == "md" {
-    font-size: 24px;
+		font-size: 15px;
+		line-height: 15px;
   }
 
   @if $size == "lg" {
-    font-size: 32px;
+    font-size: 18px;
+		line-height: 18px;
   }
 }
 
@@ -24,14 +27,14 @@ $font-family-Teko: 'Teko', sans-serif;
   font-family: $font-family-Roboto;
 
   @if $size == "sm" {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   @if $size == "md" {
-    font-size: 48px;
+    font-size: 32px;
   }
 
   @if $size == "lg" {
-    font-size: 64px;
+    font-size: 48px;
   }
 }
