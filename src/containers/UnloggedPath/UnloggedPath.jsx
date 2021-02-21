@@ -7,14 +7,16 @@ const UnloggedPath = (props) => {
 
 	const auth = useSelector((state) => state.auth);
 	const data = auth.data;
+	const authToken = auth.token;
 	const history = useHistory();
+	const token = localStorage.getItem('taskManagerToken');
 
 	function backToHome() {
 		history.push('/home');
 		return <Redirect to="/home" />;
 	}
 
-	return data === null ? children : backToHome();
+	return authToken.length === 0 ? children : backToHome();
 };
 
 export { UnloggedPath };

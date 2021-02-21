@@ -11,6 +11,13 @@ const signinSuccess = (response) => {
 	};
 };
 
+const setToken = (response) => {
+	return {
+		type: 'SET_AUTH_TOKEN',
+		payload: response
+	};
+};
+
 const signinFailure = () => {
 	return {
 		type: 'SIGNIN_FAILURE'
@@ -36,33 +43,4 @@ const signupFailure = () => {
 	};
 };
 
-const loadUser = () => {
-	return {
-		type: 'LOAD_USER'
-	};
-};
-
-const loadUserSuccess = (response) => {
-	return {
-		type: 'LOAD_USER_SUCCESS',
-		payload: response.data
-	};
-};
-
-const loadUserFailure = () => {
-	return {
-		type: 'LOAD_USER_FAILURE'
-	};
-};
-
-export {
-	signin,
-	signinSuccess,
-	signinFailure,
-	loadUser,
-	loadUserSuccess,
-	loadUserFailure,
-	signup,
-	signupSuccess,
-	signupFailure
-};
+export { signin, signinSuccess, signinFailure, signup, signupSuccess, signupFailure, setToken };

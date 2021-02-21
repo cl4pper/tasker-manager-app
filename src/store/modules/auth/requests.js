@@ -1,31 +1,18 @@
-import { LOGIN_ROUTE, ME_ROUTE } from '@utils';
+import { AUTH_ROUTE } from '@utils';
 
 // ACTIONS
 import * as authActions from './actions';
 
-const getMeRequest = (token) => {
-	return function(dispatch) {
-		dispatch(authActions.loadUser());
-		ME_ROUTE('/me', token)
-			.then((response) => {
-				dispatch(authActions.loadUserSuccess(response.data));
-			})
-			.catch(() => {
-				dispatch(authActions.loadUserFailure());
-			});
-	};
-};
-
-const signupRequest = (body) => {
+const signupRequest = (query) => {
 	return function(dispatch) {
 		dispatch(authActions.signup());
-		AUTH_ROUTE('/signup', body)
+		AUTH_ROUTE('/signup', query)
 			.then((response) => {
-				dispatch(authActions.signinSuccess(response.data));
-				window.location.replace('/login');
+				dispatch(authActions.signupSuccess(response.data));
+				window.location.replace('/');
 			})
 			.catch(() => {
-				dispatch(authActions.signinFailure());
+				dispatch(authActions.signupFailure());
 			});
 	};
 };
@@ -37,7 +24,6 @@ const loginRequest = (query) => {
 			.then((response) => {
 				dispatch(authActions.signinSuccess(response.data));
 				localStorage.setItem('taskManagerToken', response.data.data);
-				dispatch(getMeRequest(response.data.data));
 			})
 			.catch(() => {
 				dispatch(authActions.signinFailure());
@@ -45,4 +31,4 @@ const loginRequest = (query) => {
 	};
 };
 
-export { signupRequest, loginRequest, getMeRequest };
+export { signupRequest, loginRequest };

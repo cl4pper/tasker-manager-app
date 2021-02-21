@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 // STORE
-import { getMeRequest } from '@store/modules/auth/requests';
+import { getMeRequest } from '@store/modules/user/requests';
+import { setToken } from '@store/modules/auth/actions';
 
 // STYLE
 import './app.scss';
@@ -16,17 +17,20 @@ import { SignupPage, LoginPage, HomePage } from '@pages';
 const App = () => {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth);
-	const data = auth.data;
+	const authToken = auth.token;
 	const token = localStorage.getItem('taskManagerToken');
+	const user = useSelector((state) => state.user);
+	const userData = user.data;
 
 	useEffect(() => {
-		if (token && data === null) dispatch(getMeRequest(token));
-	}, [data]);
+		if (token && authToken.length === 0) dispatch(setToken(token));
+		if (authToken.length > 0) dispatch(getMeRequest(authToken));
+	}, [authToken]);
 
 	return (
 		<BrowserRouter>
 			<div className="app">
-				<Topbar />
+				{userData !== null && <Topbar />}
 
 				<UnloggedPath>
 					<Route path="/" exact={true}>
@@ -46,7 +50,7 @@ const App = () => {
 					</Route>
 				</LoggedPath>
 
-				<BottomBar />
+				{userData !== null ? <BottomBar /> : null}
 			</div>
 		</BrowserRouter>
 	);

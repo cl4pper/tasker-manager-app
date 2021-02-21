@@ -12,6 +12,7 @@ const BottomBar = () => {
 	const [projectName, setProjectName] = useState('');
 	const auth = useSelector((state) => state.auth);
 	const data = auth.data;
+	const token = auth.token;
 
 	function clearInput() {
 		setProjectName('');
@@ -26,7 +27,7 @@ const BottomBar = () => {
 	return (
 		<div
 			className={classNames('BottomBar', {
-				'BottomBar--hidden': data === null
+				'BottomBar--hidden': token.length === 0
 			})}>
 			<div className="BottomBar__section BottomBar__section--left">
 				<TextInput

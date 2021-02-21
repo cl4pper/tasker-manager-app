@@ -38,7 +38,7 @@ const SignupBox = () => {
 			})
 		);
 
-		// return <Redirect to="/login" />;
+		clearInputs();
 	}
 
 	return (

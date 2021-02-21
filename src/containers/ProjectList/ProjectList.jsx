@@ -10,9 +10,9 @@ import { Text } from '@lib';
 import { Project } from '@components';
 
 const ProjectList = () => {
-	const auth = useSelector((state) => state.auth);
-	const data = auth.data;
-	const projects = data.projects;
+	const user = useSelector((state) => state.user);
+	const projects = user.projects;
+	// console.log(data);
 
 	const renderProjects = () => {
 		return (

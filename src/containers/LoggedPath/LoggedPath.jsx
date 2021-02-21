@@ -6,12 +6,11 @@ const LoggedPath = (props) => {
 	const { children } = props;
 
 	const auth = useSelector((state) => state.auth);
-	const data = auth.data;
+	const authToken = auth.token;
 
 	const condRedirect = () => {
-		console.log(window.location.pathname);
 		if (
-			data !== null &&
+			authToken.length === 0 &&
 			(window.location.pathname !== '/' || window.location.pathname !== '/signup')
 		) {
 			return <Redirect to="/" />;

@@ -8,8 +8,9 @@ import './Topbar.scss';
 import { Text } from '@lib';
 
 const Topbar = () => {
-	const auth = useSelector((state) => state.auth);
-	const data = auth.data;
+	const user = useSelector((state) => state.user);
+	const userData = user.data;
+	const username = userData.username;
 
 	function logout() {
 		localStorage.removeItem('taskManagerToken');
@@ -21,11 +22,9 @@ const Topbar = () => {
 			<div className="Topbar__section">
 				<Text content="LOGO" tall />
 			</div>
-			{data !== null ? (
-				<div className="Topbar__section" onClick={() => logout()}>
-					<Text content={data.username} right />
-				</div>
-			) : null}
+			<div className="Topbar__section" onClick={() => logout()}>
+				<Text content={username} right />
+			</div>
 		</div>
 	);
 };
