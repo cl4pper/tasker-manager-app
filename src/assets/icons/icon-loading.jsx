@@ -18,7 +18,7 @@ const IconLoading = (props) => {
 			focusable="false"
 			data-prefix="fas"
 			data-icon="spinner"
-			data-testid={ dataTestId || 'loading-icon' }
+			data-testid={dataTestId || 'loading-icon'}
 			role="img"
 			xmlns="http://www.w3.org/2000/svg"
 			className={className}>

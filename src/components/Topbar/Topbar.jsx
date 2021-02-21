@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 // STYLE
 import './Topbar.scss';
@@ -7,6 +8,9 @@ import './Topbar.scss';
 import { Text } from '@lib';
 
 const Topbar = () => {
+	const auth = useSelector((state) => state.auth);
+	const logged = auth.logged;
+
 	const userName = 'Username';
 
 	return (
@@ -15,10 +19,10 @@ const Topbar = () => {
 				<Text content="LOGO" tall />
 			</div>
 			<div className="Topbar__section">
-				<Text content={userName} right/>
+				{ logged && <Text content={userName} right /> }
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 export { Topbar };
