@@ -9,7 +9,7 @@
 		"test:watch": "npm run test -- --watch",
 		"test:verbose": "npm run test -- --verbose=true --watch",
 		"app": "webpack-dev-server --open",
-		"lint": "prettier --write '**/*.jsx'",
+		"lint": "prettier --write '**/*.jsx' '**/*.js'",
 		"stories": "start-storybook --port 9090",
 		"start": "node server.js",
 		"build": "webpack -p",
