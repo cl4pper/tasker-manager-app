@@ -1,0 +1,7 @@
+.Box {
+	width: 200px;
+	padding: spacing("sm");
+	border: 1px solid $color-dark;
+	@include setBorderRadius("all", "md");
+	background-color: $color-grey;
+}
