@@ -7,7 +7,7 @@ import './Topbar.scss';
 import { Text } from '@lib';
 
 const Topbar = () => {
-	const userName = "Username";
+	const userName = 'Username';
 
 	return (
 		<div className="Topbar">

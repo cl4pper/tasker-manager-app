@@ -8,16 +8,15 @@ import { taskListMock } from '@utils';
 import './app.scss';
 
 // COMPONENTS
-import { Project } from '@components';
-import { Home } from '@pages';
-import { LoginPage } from '@pages';
+import { Project, Topbar } from '@components';
+import { LoginPage, HomePage } from '@pages';
 
 class AppContainer extends Component {
 	render() {
 		return (
 			<div className="app">
-				{/* {console.log(taskListMock)}
-				<Project title="Project" tasks={taskListMock} /> */}
+				<Topbar />
+				<HomePage />
 				<LoginPage />
 			</div>
 		);

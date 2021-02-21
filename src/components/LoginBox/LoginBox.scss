@@ -1,8 +1,20 @@
+%LineStructure {
+	width: 200px;
+	margin-top: spacing("sm");
+}
+
 .LoginBox {
+
 	&__line {
-		width: 200px;
+		@extend %LineStructure;
 		display: flex;
 		justify-content: center;
-		margin-top: spacing("sm");
+	}
+
+	&__buttons {
+		@extend %LineStructure;
+		display: grid;
+		grid-template-columns: auto auto;
+		column-gap: spacing("sm");
 	}
 }

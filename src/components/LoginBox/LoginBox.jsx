@@ -10,6 +10,15 @@ const LoginBox = () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
+	function clearInputs () {
+		// first: clear state
+		// second: clear input component (by id)
+		setUsername('');
+		document.getElementById('input-login-username').value = '';
+		setPassword('');
+		document.getElementById('input-login-password').value = '';
+	}
+
 	return (
 		<Box>
 			<div className="LoginBox__line">
@@ -31,8 +40,9 @@ const LoginBox = () => {
 					onChange={(e) => setPassword(e)}
 				/>
 			</div>
-			<div className="LoginBox__line">
-				<Button label="Login" />
+			<div className="LoginBox__buttons">
+				<Button label="Login"/>
+				<Button label="Clear" secondary onClick={() => clearInputs()} />
 			</div>
 		</Box>
 	);

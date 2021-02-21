@@ -3,12 +3,12 @@ import React from 'react';
 // STYLE
 import './Home.scss';
 
-const Home = () => {
+const HomePage = () => {
 	return (
-		<div className="Home">
+		<div className="HomePage">
 			<h1>Hello</h1>
 		</div>
 	);
 };
 
-export { Home };
+export { HomePage };
