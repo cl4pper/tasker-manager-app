@@ -1,0 +1,18 @@
+.Topbar {
+	width: 100%;
+	padding: spacing("lg") 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	@include fontText("md");
+	color: $color-secondary;
+	background-color: $color-dark;
+	box-shadow: 0 2px 4px $color-grey;
+	display: grid;
+	grid-template-columns: 50% 50%;
+
+	&__section {
+		padding: 0 spacing("md");
+	}
+}
