@@ -1,0 +1,8 @@
+.LoginBox {
+	&__line {
+		width: 200px;
+		display: flex;
+		justify-content: center;
+		margin-top: spacing("sm");
+	}
+}

@@ -1,7 +1,10 @@
 .Box {
-	width: 200px;
-	padding: spacing("sm");
+	padding: spacing("lg");
 	border: 1px solid $color-dark;
 	@include setBorderRadius("all", "md");
-	background-color: $color-grey;
+	background-color: $color-light;
+	display: inline-block;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
