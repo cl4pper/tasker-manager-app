@@ -1,7 +1,7 @@
 $button-heigh: 32px;
 
 %ButtonStructure {
-	min-width: 100px;
+	min-width: 80px;
 	height: $button-heigh;
 	border-radius: $button-heigh * 0.15;
 	padding: spacing("xs") spacing("lg");
@@ -38,6 +38,25 @@ $button-heigh: 32px;
 		position: relative;
 		top: 1px;
 		box-shadow: none;
+	}
+
+	&--disabled {
+		color: $color-dark;
+		border: 2px solid $color-grey;
+		background-color: $color-grey;
+		box-shadow: 0 1px 4px $color-dark;
+		cursor: not-allowed;
+
+		&:hover {
+			color: $color-dark;
+			border: 2px solid $color-grey;
+			background-color: $color-grey;
+			box-shadow: 0 1px 4px $color-dark;
+		}
+
+		&:active {
+			position: relative;
+		}
 	}
 
 	&__loader {
