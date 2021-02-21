@@ -1,4 +1,4 @@
-import { LOGIN_ROUTE, ME_ROUTE } from '@utils';
+import { AUTH_ROUTE, ME_ROUTE } from '@utils';
 
 // ACTIONS
 import * as authActions from './actions';
@@ -16,16 +16,16 @@ const getMeRequest = (token) => {
 	};
 };
 
-const signupRequest = (body) => {
+const signupRequest = (query) => {
 	return function(dispatch) {
 		dispatch(authActions.signup());
-		AUTH_ROUTE('/signup', body)
+		AUTH_ROUTE('/signup', query)
 			.then((response) => {
-				dispatch(authActions.signinSuccess(response.data));
-				window.location.replace('/login');
+				dispatch(authActions.signupSuccess(response.data));
+				window.location.replace('/');
 			})
 			.catch(() => {
-				dispatch(authActions.signinFailure());
+				dispatch(authActions.signupFailure());
 			});
 	};
 };
