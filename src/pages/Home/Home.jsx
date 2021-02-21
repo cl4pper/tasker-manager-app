@@ -3,10 +3,13 @@ import React from 'react';
 // STYLE
 import './Home.scss';
 
+// COMPONENTS
+import { ProjectList } from '@containers';
+
 const HomePage = () => {
 	return (
 		<div className="HomePage">
-			<h1>Hello</h1>
+			<ProjectList />
 		</div>
 	);
 };

@@ -10,7 +10,8 @@ import { Text, Button, TextInput } from '@lib';
 import { Task } from '@components';
 
 const Project = (props) => {
-	const { tasks, title } = props;
+	const { project } = props;
+	const { title, tasks } = project;
 
 	const [newTask, setNewTask] = useState('');
 
@@ -92,8 +93,7 @@ const Project = (props) => {
 };
 
 Project.propTypes = {
-	tasks: PropTypes.array,
-	title: PropTypes.string
+	project: PropTypes.object
 };
 
 export { Project };

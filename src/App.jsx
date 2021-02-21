@@ -28,7 +28,7 @@ const App = () => {
 			<div className="app">
 				<Topbar />
 
-				<UnloggedPath>
+				<UnloggedPath to="/home">
 					<Route path="/" exact={true}>
 						<LoginPage />
 					</Route>
