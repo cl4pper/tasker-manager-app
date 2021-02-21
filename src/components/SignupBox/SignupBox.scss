@@ -1,0 +1,20 @@
+%LineStructure {
+	width: 200px;
+	margin-top: spacing("sm");
+}
+
+.SignupBox {
+
+	&__line {
+		@extend %LineStructure;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__buttons {
+		@extend %LineStructure;
+		display: grid;
+		grid-template-columns: auto auto;
+		column-gap: spacing("sm");
+	}
+}

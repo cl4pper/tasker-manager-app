@@ -17,6 +17,25 @@ const signinFailure = () => {
 	};
 };
 
+const signup = () => {
+	return {
+		type: 'SIGNUP'
+	};
+};
+
+const signupSuccess = (response) => {
+	return {
+		type: 'SIGNUP_SUCCESS',
+		payload: response.data
+	};
+};
+
+const signupFailure = () => {
+	return {
+		type: 'SIGNUP_FAILURE'
+	};
+};
+
 const loadUser = () => {
 	return {
 		type: 'LOAD_USER'
@@ -36,4 +55,14 @@ const loadUserFailure = () => {
 	};
 };
 
-export { signin, signinSuccess, signinFailure, loadUser, loadUserSuccess, loadUserFailure };
+export {
+	signin,
+	signinSuccess,
+	signinFailure,
+	loadUser,
+	loadUserSuccess,
+	loadUserFailure,
+	signup,
+	signupSuccess,
+	signupFailure
+};

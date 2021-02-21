@@ -1,0 +1,7 @@
+.SignupPage {
+	@include responsive("view");
+	background-color: $color-grey;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

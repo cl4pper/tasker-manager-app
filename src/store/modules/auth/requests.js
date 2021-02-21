@@ -16,10 +16,24 @@ const getMeRequest = (token) => {
 	};
 };
 
+const signupRequest = (body) => {
+	return function(dispatch) {
+		dispatch(authActions.signup());
+		AUTH_ROUTE('/signup', body)
+			.then((response) => {
+				dispatch(authActions.signinSuccess(response.data));
+				window.location.replace('/login');
+			})
+			.catch(() => {
+				dispatch(authActions.signinFailure());
+			});
+	};
+};
+
 const loginRequest = (query) => {
 	return function(dispatch) {
 		dispatch(authActions.signin());
-		LOGIN_ROUTE('/signin', query)
+		AUTH_ROUTE('/signin', query)
 			.then((response) => {
 				dispatch(authActions.signinSuccess(response.data));
 				localStorage.setItem('taskManagerToken', response.data.data);
@@ -31,4 +45,4 @@ const loginRequest = (query) => {
 	};
 };
 
-export { loginRequest, getMeRequest };
+export { signupRequest, loginRequest, getMeRequest };

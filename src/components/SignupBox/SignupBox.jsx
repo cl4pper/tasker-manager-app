@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 // STYLE
-import './LoginBox.scss';
+import './SignupBox.scss';
 
 // STORE
-import { loginRequest } from '@store/modules/auth/requests';
+import { signupRequest } from '@store/modules/auth/requests';
 
 // COMPONENTS
 import { Box, Button, TextInput, Text, MainLink } from '@lib';
 
-const LoginBox = () => {
+const SignupBox = () => {
 	const dispatch = useDispatch();
 	// AUTH STATE
 	const auth = useSelector((state) => state.auth);
@@ -24,50 +25,52 @@ const LoginBox = () => {
 		// first: clear state
 		// second: clear input component (by id)
 		setUsername('');
-		document.getElementById('input-login-username').value = '';
+		document.getElementById('input-signup-username').value = '';
 		setPassword('');
-		document.getElementById('input-login-password').value = '';
+		document.getElementById('input-signup-password').value = '';
 	}
 
-	function login() {
+	function signup() {
 		dispatch(
-			loginRequest({
+			signupRequest({
 				username,
 				password
 			})
 		);
+
+		// return <Redirect to="/login" />;
 	}
 
 	return (
 		<Box>
-			<div className="LoginBox__line">
-				<Text content="Login" />
-				<MainLink content="Register" href="/signup" />
+			<div className="SignupBox__line">
+				<Text content="Register" />
+				<MainLink content="Login" href="/" />
 			</div>
-			<div className="LoginBox__line">
+			<div className="SignupBox__line">
 				<TextInput
-					id="input-login-username"
+					id="input-signup-username"
 					placeholder="Username"
 					error={error && username.length}
 					errorLabel="Incorrect username"
 					onChange={(e) => setUsername(e)}
 				/>
 			</div>
-			<div className="LoginBox__line">
+			<div className="SignupBox__line">
 				<TextInput
-					id="input-login-password"
+					id="input-signup-password"
 					placeholder="Password"
 					error={error && password.length}
 					errorLabel="Incorrect password"
 					onChange={(e) => setPassword(e)}
 				/>
 			</div>
-			<div className="LoginBox__buttons">
-				<Button label="Login" onClick={() => login()} loading={loading} />
+			<div className="SignupBox__buttons">
+				<Button label="Register" onClick={() => signup()} loading={loading} />
 				<Button label="Clear" secondary onClick={() => clearInputs()} loading={loading} />
 			</div>
 		</Box>
 	);
 };
 
-export { LoginBox };
+export { SignupBox };

@@ -9,6 +9,27 @@ const INITIAL_STATE = {
 
 function reducer(state = INITIAL_STATE, action) {
 	switch (action.type) {
+		case 'SIGNUP':
+			return {
+				...state,
+				loading: true,
+				error: false
+			};
+
+		case 'SIGNUP_SUCCESS':
+			return {
+				...state,
+				loading: false,
+				token: action.payload
+			};
+
+		case 'SIGNUP_FAILURE':
+			return {
+				...state,
+				loading: false,
+				error: true
+			};
+
 		case 'SIGNIN':
 			return {
 				...state,
@@ -19,7 +40,6 @@ function reducer(state = INITIAL_STATE, action) {
 		case 'SIGNIN_SUCCESS':
 			return {
 				...state,
-				logged: true,
 				loading: false,
 				token: action.payload
 			};

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 // STORE
 import { getMeRequest } from '@store/modules/auth/requests';
@@ -11,7 +11,7 @@ import './app.scss';
 // COMPONENTS
 import { Topbar, BottomBar } from '@components';
 import { LoggedPath, UnloggedPath } from '@containers';
-import { LoginPage, HomePage } from '@pages';
+import { SignupPage, LoginPage, HomePage } from '@pages';
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -28,13 +28,19 @@ const App = () => {
 			<div className="app">
 				<Topbar />
 
-				<UnloggedPath to="/home">
+				<UnloggedPath>
 					<Route path="/" exact={true}>
 						<LoginPage />
 					</Route>
 				</UnloggedPath>
 
-				<LoggedPath to="/">
+				<UnloggedPath>
+					<Route path="/signup" exact={true}>
+						<SignupPage />
+					</Route>
+				</UnloggedPath>
+
+				<LoggedPath>
 					<Route path="/home" exact={true}>
 						<HomePage />
 					</Route>
