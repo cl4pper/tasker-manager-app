@@ -8,7 +8,7 @@ const LOGIN_ROUTE = (args = '', body = null) =>
 const ME_ROUTE = (args = '', token) =>
 	axios.get('http://localhost:3001/api/auth' + args, {
 		headers: {
-			'authentication': `Bearer ${token}`
+			authentication: `Bearer ${token}`
 		}
 	});
 

@@ -16,14 +16,11 @@ const Topbar = () => {
 			<div className="Topbar__section">
 				<Text content="LOGO" tall />
 			</div>
-			{
-				data !== null
-					? (
-						<div className="Topbar__section">
-							<Text content={data.username} right />
-						</div>
-					) : null
-			}
+			{data !== null ? (
+				<div className="Topbar__section">
+					<Text content={data.username} right />
+				</div>
+			) : null}
 		</div>
 	);
 };

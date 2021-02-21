@@ -9,7 +9,7 @@ import { getMeRequest } from '@store/modules/auth/requests';
 import './app.scss';
 
 // COMPONENTS
-import { Topbar } from '@components';
+import { Topbar, BottomBar } from '@components';
 import { LoggedPath, UnloggedPath } from '@containers';
 import { LoginPage, HomePage } from '@pages';
 
@@ -20,30 +20,30 @@ const App = () => {
 	const token = localStorage.getItem('taskManagerToken');
 
 	useEffect(() => {
-		if(token && data === null) dispatch(getMeRequest(token));
+		if (token && data === null) dispatch(getMeRequest(token));
 	}, [data]);
 
 	return (
 		<BrowserRouter>
-			<Switch>
-				<div className="app">
-					<Topbar />
+			<div className="app">
+				<Topbar />
 
-					<UnloggedPath>
-						<Route path="/" exact={true}>
-							<LoginPage />
-						</Route>
-					</UnloggedPath>
+				<UnloggedPath>
+					<Route path="/" exact={true}>
+						<LoginPage />
+					</Route>
+				</UnloggedPath>
 
-					<LoggedPath to="/">
-						<Route path="/home" exact={true}>
-							<HomePage />
-						</Route>
-					</LoggedPath>
-				</div>
-			</Switch>
+				<LoggedPath to="/">
+					<Route path="/home" exact={true}>
+						<HomePage />
+					</Route>
+				</LoggedPath>
+
+				<BottomBar />
+			</div>
 		</BrowserRouter>
 	);
-}
+};
 
 export default App;

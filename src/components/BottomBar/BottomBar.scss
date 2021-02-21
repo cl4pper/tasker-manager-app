@@ -1,0 +1,30 @@
+.BottomBar {
+	width: 100%;
+	padding: spacing("md") 0;
+	background-color: $color-dark;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	&--hidden {
+		display: none;
+	}
+
+	&__section {
+		padding: 0 spacing("md");
+		display: flex;
+		align-items: center;
+
+		&--left {
+			justify-content: flex-end;
+		}
+
+		&--right {
+			display: flex;
+			justify-content: flex-start;
+		}
+	}
+}

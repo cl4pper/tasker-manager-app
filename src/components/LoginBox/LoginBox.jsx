@@ -30,10 +30,12 @@ const LoginBox = () => {
 	}
 
 	function login() {
-		dispatch(loginRequest({
-			username,
-			password
-		}));
+		dispatch(
+			loginRequest({
+				username,
+				password
+			})
+		);
 	}
 
 	return (
@@ -45,7 +47,7 @@ const LoginBox = () => {
 				<TextInput
 					id="input-login-username"
 					placeholder="Username"
-					error={error}
+					error={error && username.length}
 					errorLabel="Incorrect username"
 					onChange={(e) => setUsername(e)}
 				/>
@@ -54,7 +56,7 @@ const LoginBox = () => {
 				<TextInput
 					id="input-login-password"
 					placeholder="Password"
-					error={error}
+					error={error && password.length}
 					errorLabel="Incorrect password"
 					onChange={(e) => setPassword(e)}
 				/>
