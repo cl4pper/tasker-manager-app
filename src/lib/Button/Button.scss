@@ -5,7 +5,6 @@ $button-heigh: 32px;
 	height: $button-heigh;
 	border-radius: $button-heigh * 0.15;
 	padding: spacing("xs") spacing("lg");
-	box-shadow: 0 1px 4px $color-primary;
 	border: 2px solid $color-primary;
 	box-sizing: border-box;
 	outline: none;
@@ -20,7 +19,6 @@ $button-heigh: 32px;
 	&:hover {
 		background-color: $color-primary-light;
 		border: 2px solid $color-primary-light;
-		box-shadow: 0 2px 6px $color-primary-light;
 	}
 
 	&--secondary {
@@ -30,7 +28,6 @@ $button-heigh: 32px;
 		&:hover {
 			background-color: $color-grey-light;
 			border: 2px solid $color-primary-light;
-			box-shadow: 0 2px 6px $color-primary-light;
 		}
 	}
 
@@ -44,14 +41,12 @@ $button-heigh: 32px;
 		color: $color-dark;
 		border: 2px solid $color-grey;
 		background-color: $color-grey;
-		box-shadow: 0 1px 4px $color-dark;
 		cursor: not-allowed;
 
 		&:hover {
 			color: $color-dark;
 			border: 2px solid $color-grey;
 			background-color: $color-grey;
-			box-shadow: 0 1px 4px $color-dark;
 		}
 
 		&:active {

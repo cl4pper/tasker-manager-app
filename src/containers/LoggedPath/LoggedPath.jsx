@@ -6,9 +6,9 @@ const LoggedPath = (props) => {
 	const { children, to } = props;
 
 	const auth = useSelector((state) => state.auth);
-	const logged = auth.logged;
+	const data = auth.data;
 
-	return logged ? children : <Redirect to={to} />;
+	return data !== null ? children : <Redirect to={to} />;
 };
 
 export { LoggedPath };

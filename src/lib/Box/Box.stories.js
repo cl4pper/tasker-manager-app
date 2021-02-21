@@ -11,8 +11,4 @@ const props = {
 	content: <Text content="Hello, Box" />
 };
 
-stories.add('Default', () => (
-	<Box>
-		{props.content}
-	</Box>
-));
+stories.add('Default', () => <Box>{props.content}</Box>);

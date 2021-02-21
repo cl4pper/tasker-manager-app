@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 // STYLE
 import './LoginBox.scss';
+
+// STORE
+import { loginRequest } from '@store/modules/auth/requests';
 
 // COMPONENTS
 import { Box, Button, TextInput, Text } from '@lib';
 
 const LoginBox = () => {
+	const dispatch = useDispatch();
+	// AUTH STATE
+	const auth = useSelector((state) => state.auth);
+	const loading = auth.loading;
+	const error = auth.error;
+
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -19,6 +29,13 @@ const LoginBox = () => {
 		document.getElementById('input-login-password').value = '';
 	}
 
+	function login() {
+		dispatch(loginRequest({
+			username,
+			password
+		}));
+	}
+
 	return (
 		<Box>
 			<div className="LoginBox__line">
@@ -28,7 +45,8 @@ const LoginBox = () => {
 				<TextInput
 					id="input-login-username"
 					placeholder="Username"
-					errorLable="Incorrect username"
+					error={error}
+					errorLabel="Incorrect username"
 					onChange={(e) => setUsername(e)}
 				/>
 			</div>
@@ -36,13 +54,14 @@ const LoginBox = () => {
 				<TextInput
 					id="input-login-password"
 					placeholder="Password"
-					errorLable="Incorrect password"
+					error={error}
+					errorLabel="Incorrect password"
 					onChange={(e) => setPassword(e)}
 				/>
 			</div>
 			<div className="LoginBox__buttons">
-				<Button label="Login" />
-				<Button label="Clear" secondary onClick={() => clearInputs()} />
+				<Button label="Login" onClick={() => login()} loading={loading} />
+				<Button label="Clear" secondary onClick={() => clearInputs()} loading={loading} />
 			</div>
 		</Box>
 	);

@@ -6,10 +6,10 @@ import { rootReducer } from '@store/modules/rootReducer';
 
 const middlewares = [thunk];
 
-const store = createStore (
-  rootReducer,
-  applyMiddleware(...middlewares)
-  //   composeWithDevTools(applyMiddleware(middlewares))
+const store = createStore(
+	rootReducer,
+	applyMiddleware(...middlewares)
+	//   composeWithDevTools(applyMiddleware(middlewares))
 );
 
-export {store};
+export { store };

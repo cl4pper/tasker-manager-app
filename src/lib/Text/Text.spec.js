@@ -61,7 +61,11 @@ describe('[lib] Text:', () => {
 	});
 
 	it('should NOT apply any alignment when right and ceter props are set', () => {
-		const { container } = render(<Text right center>{children}</Text>);
+		const { container } = render(
+			<Text right center>
+				{children}
+			</Text>
+		);
 
 		expect(container.firstChild.classList.contains('Text--right')).toBeFalsy();
 		expect(container.firstChild.classList.contains('Text--center')).toBeFalsy();

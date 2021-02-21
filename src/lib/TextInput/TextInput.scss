@@ -1,6 +1,5 @@
 .TextInput {
 	width: 100%;
-	display: flex;
 
 	> p {
 		margin: 0;
@@ -16,7 +15,8 @@
 	}
 
 	&__input {
-		width: 100%;
+		// width: 100%;
+		width: 180px;
 		padding: spacing("xs");
 		border: 1px solid $color-input-border;
 		@include setBorderRadius("all", "md");
@@ -29,7 +29,6 @@
 
 	&__error {
 		color: $color-text-error;
-		padding: 0 spacing("sm");
 		padding-top: spacing("xs");
 	}
 }

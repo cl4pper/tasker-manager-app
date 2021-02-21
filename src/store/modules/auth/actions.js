@@ -1,25 +1,39 @@
-
-// ACTION TO REQUEST DATA FROM API
-const login = () => {
-  return {
-    type: 'LOGIN'
-  };
+const signin = () => {
+	return {
+		type: 'SIGNIN'
+	};
 };
 
-// ACTION EXECUTED AFTER SUCCESSFULL RESPONSE
-const loadCommitsSuccess = response => {
-  return {
-    type: 'LOAD_COMMITS_SUCCESS',
-    payload: response
-  };
+const signinSuccess = (response) => {
+	return {
+		type: 'SIGNIN_SUCCESS',
+		payload: response.data
+	};
 };
 
-// ACTION EXECUTED AFTER A BAD REQUEST
-const loadCommitsFailure = response => {
-  return {
-    type: 'LOAD_COMMITS_FAILURE',
-    payload: response
-  };
+const signinFailure = () => {
+	return {
+		type: 'SIGNIN_FAILURE'
+	};
 };
 
-export { login };
+const loadUser = () => {
+	return {
+		type: 'LOAD_USER'
+	};
+};
+
+const loadUserSuccess = (response) => {
+	return {
+		type: 'LOAD_USER_SUCCESS',
+		payload: response.data
+	};
+};
+
+const loadUserFailure = () => {
+	return {
+		type: 'LOAD_USER_FAILURE'
+	};
+};
+
+export { signin, signinSuccess, signinFailure, loadUser, loadUserSuccess, loadUserFailure };

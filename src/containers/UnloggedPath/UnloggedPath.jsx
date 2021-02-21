@@ -6,7 +6,7 @@ const UnloggedPath = (props) => {
 	const { children, to } = props;
 
 	const auth = useSelector((state) => state.auth);
-	const logged = auth.logged;
+	const data = auth.data;
 	const history = useHistory();
 
 	function backToHome() {
@@ -14,7 +14,7 @@ const UnloggedPath = (props) => {
 		return <Redirect to={to} />;
 	}
 
-	return !logged ? children : backToHome();
+	return data === null ? children : backToHome();
 };
 
 export { UnloggedPath };

@@ -7,7 +7,7 @@ const stories = storiesOf('Text', module);
 stories.addDecorator(withKnobs);
 
 const props = {
-	content: 'Text comes here',
+	content: 'Text comes here'
 };
 
 stories.add('Default', () => (
@@ -19,5 +19,6 @@ stories.add('Default', () => (
 		italic={boolean('italic', false)}
 		underline={boolean('underline', false)}
 		center={boolean('center', false)}
-		right={boolean('right', false)}/>
+		right={boolean('right', false)}
+	/>
 ));

@@ -7,9 +7,7 @@ const stories = storiesOf('Checkbox', module);
 stories.addDecorator(withKnobs);
 
 const props = {
-	checked: true,
+	checked: true
 };
 
-stories.add('Default', () => (
-	<Checkbox checked={boolean('checked', props.checked)} />
-));
+stories.add('Default', () => <Checkbox checked={boolean('checked', props.checked)} />);

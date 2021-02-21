@@ -1,52 +1,49 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-// MOCKS
-import { taskListMock } from '@utils';
+// STORE
+import { getMeRequest } from '@store/modules/auth/requests';
 
 // STYLE
 import './app.scss';
 
 // COMPONENTS
-import { Project, Topbar } from '@components';
+import { Topbar } from '@components';
 import { LoggedPath, UnloggedPath } from '@containers';
 import { LoginPage, HomePage } from '@pages';
 
-class AppContainer extends Component {
-	render() {
-		return (
-			<BrowserRouter>
-				<Switch>
-					<div className="app">
-						<Topbar />
+const App = () => {
+	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.auth);
+	const data = auth.data;
+	const token = localStorage.getItem('taskManagerToken');
 
-						{/* <Route path="/" exact={true}>
+	useEffect(() => {
+		if(token && data === null) dispatch(getMeRequest(token));
+	}, [data]);
+
+	return (
+		<BrowserRouter>
+			<Switch>
+				<div className="app">
+					<Topbar />
+
+					<UnloggedPath>
+						<Route path="/" exact={true}>
 							<LoginPage />
-						</Route> */}
+						</Route>
+					</UnloggedPath>
 
-						<UnloggedPath>
-							<Route path="/" exact={true}>
-								<LoginPage />
-							</Route>
-						</UnloggedPath>
-
-						<LoggedPath to="/">
-							<Route path="/home" exact={true}>
-								<HomePage />
-							</Route>
-						</LoggedPath>
-					</div>
-				</Switch>
-			</BrowserRouter>
-		);
-	}
+					<LoggedPath to="/">
+						<Route path="/home" exact={true}>
+							<HomePage />
+						</Route>
+					</LoggedPath>
+				</div>
+			</Switch>
+		</BrowserRouter>
+	);
 }
-
-const mapStateToProps = (state) => ({
-	strings: state.strings.data
-});
-
-const App = connect(mapStateToProps)(AppContainer);
 
 export default App;
