@@ -1,4 +1,4 @@
-# react-boilerplate
+# tasker-manager-app
 
 Engineered by [react-boilerplate](https://github.com/cl4pper/react-boilerplate)
 
