@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "jest --config ./jest.config.json",
 		"test:all": "npm run test -- --watchAll",
-		"test:watch": "npm run test -- --watch",
+		"testing": "npm run test -- --watch",
 		"test:verbose": "npm run test -- --verbose=true --watch",
 		"app": "webpack-dev-server --open",
 		"lint": "prettier --write '**/*.jsx' '**/*.js'",
