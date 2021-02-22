@@ -1,27 +1,36 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
 // STYLE
 import './ProjectList.scss';
 
+// STORE
+import { getProjects } from '@store/modules/projects/requests';
+
 // COMPONENTS
 import { Text } from '@lib';
 import { Project } from '@components';
+import { IconLoading } from '@icons';
 
-const ProjectList = props => {
-	const { projects } = props;
+const ProjectList = () => {
 
-	const user = useSelector((state) => state.user);
-	// const projects = user.projects;
-	// console.log(data);
+	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.auth);
+	const authToken = auth.token;
 
-	console.log(projects)
+	const projects = useSelector((state) => state.projects);
+	const loading = projects.loading;
+	const projectsList = projects.projects;
+
+	useEffect(() => {
+		if (!projectsList.length) dispatch(getProjects(authToken));
+	}, []);
 
 	const renderProjects = () => {
 		return (
 			<ul className="ProjectList__list">
-				{projects.map((project, idx) => (
+				{projectsList.map((project, idx) => (
 					<li className="ProjectList__project" key={idx}>
 						<Project project={project} />
 					</li>
@@ -31,14 +40,15 @@ const ProjectList = props => {
 	};
 
 	const renderList = () => {
-		return projects.length ? renderProjects() : <Text content="No project" tall italic center />;
+		return projectsList.length ? renderProjects() : <Text content="No project" tall italic center />;
 	};
+
 	return (
 		<section
 			className={classNames('ProjectList', {
-				'ProjectList--empty': !projects.length
+				'ProjectList--empty': !projectsList.length
 			})}>
-			{renderList()}
+			{loading ? <IconLoading className="ProjectList__loader" /> : renderList()}
 		</section>
 	);
 };

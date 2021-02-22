@@ -1,10 +1,17 @@
 import axios from 'axios';
 
-const GET_PROJECTS_ROUTE = (args = '', token) =>
-	axios.get('http://localhost:3001/api/projects' + args, {
+const GET_PROJECTS_ROUTE = (token) =>
+	axios.get('http://localhost:3001/api/projects/user', {
 		headers: {
 			authorization: `Bearer ${token}`
 		}
 	});
 
-export { GET_PROJECTS_ROUTE };
+const CREATE_PROJECT_ROUTE = (token, body) =>
+	axios.post('http://localhost:3001/api/project', body, {
+		headers: {
+			authorization: `Bearer ${token}`
+		}
+	});
+
+export { GET_PROJECTS_ROUTE, CREATE_PROJECT_ROUTE };

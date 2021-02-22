@@ -17,4 +17,22 @@ const loadProjectsFailure = () => {
 	};
 };
 
-export { loadProjects, loadProjectsSuccess, loadProjectsFailure };
+const createProject = () => {
+	return {
+		type: 'CREATE_PROJECT'
+	};
+};
+
+const createProjectSuccess = () => {
+	return {
+		type: 'CREATE_PROJECT_SUCCESS'
+	};
+};
+
+const createProjectFailure = () => {
+	return {
+		type: 'CREATE_PROJECT_FAILURE'
+	};
+};
+
+export { loadProjects, loadProjectsSuccess, loadProjectsFailure, createProject, createProjectSuccess, createProjectFailure };

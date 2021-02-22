@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
 // STYLE
 import './BottomBar.scss';
 
+// STORE
+import { createProject } from '@store/modules/projects/requests';
+
 // COMPONENTS
 import { Button, TextInput } from '@lib';
 
 const BottomBar = () => {
+	const dispatch = useDispatch();
 	const [projectName, setProjectName] = useState('');
 	const auth = useSelector((state) => state.auth);
-	const data = auth.data;
-	const token = auth.token;
+	const authToken = auth.token;
 
 	function clearInput() {
 		setProjectName('');
@@ -20,14 +23,14 @@ const BottomBar = () => {
 	}
 
 	function submit() {
-		console.log(projectName);
+		dispatch(createProject(authToken, projectName));
 		clearInput();
 	}
 
 	return (
 		<div
 			className={classNames('BottomBar', {
-				'BottomBar--hidden': token.length === 0
+				'BottomBar--hidden': authToken.length === 0
 			})}>
 			<div className="BottomBar__section BottomBar__section--left">
 				<TextInput

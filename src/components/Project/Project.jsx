@@ -15,6 +15,7 @@ const Project = (props) => {
 
 	const [newTask, setNewTask] = useState('');
 
+	// REFACTOR -> TURN INTO ANOTHER SMALLER COMPONENT - OpenTasks
 	const renderOpenList = () => {
 		return (
 			<>
@@ -32,6 +33,7 @@ const Project = (props) => {
 		);
 	};
 
+	// REFACTOR -> TURN INTO ANOTHER SMALLER COMPONENT - ClosedTasks
 	const renderDoneList = () => {
 		return (
 			<>
