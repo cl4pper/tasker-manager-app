@@ -10,8 +10,7 @@ import { setToken } from '@store/modules/auth/actions';
 import './app.scss';
 
 // COMPONENTS
-import { Topbar, BottomBar } from '@components';
-import { LoggedPath, UnloggedPath } from '@containers';
+import { LoggedPath, UnloggedPath, BottomBar, Topbar } from '@containers';
 import { SignupPage, LoginPage, HomePage } from '@pages';
 
 const App = () => {
