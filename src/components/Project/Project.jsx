@@ -64,7 +64,7 @@ const Project = (props) => {
 				className={classNames('Project__taskList', {
 					'Project__taskList--empty': !tasks.length
 				})}>
-				<Text content="No task" italic />
+				<Text content="No tasks" italic center />
 			</div>
 		);
 	};

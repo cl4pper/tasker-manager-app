@@ -1,6 +1,18 @@
 .ProjectList {
 	width: 100%;
+	padding: spacing("md");
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
+
+	&--empty {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__list {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
 }

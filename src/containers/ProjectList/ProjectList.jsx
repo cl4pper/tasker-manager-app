@@ -9,10 +9,14 @@ import './ProjectList.scss';
 import { Text } from '@lib';
 import { Project } from '@components';
 
-const ProjectList = () => {
+const ProjectList = props => {
+	const { projects } = props;
+
 	const user = useSelector((state) => state.user);
-	const projects = user.projects;
+	// const projects = user.projects;
 	// console.log(data);
+
+	console.log(projects)
 
 	const renderProjects = () => {
 		return (

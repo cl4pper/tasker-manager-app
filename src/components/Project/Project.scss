@@ -27,8 +27,14 @@ $baseColor: $color-dark;
 	&__taskList {
 		margin: 0;
 		padding: 0;
+		border-left: 1px solid $baseColor;
+		border-right: 1px solid $baseColor;
 		list-style: none;
-		margin-bottom: spacing("lg");
+		padding-bottom: spacing("lg");
+
+		&--empty {
+			padding: spacing("md") 0;
+		}
 	}
 
 	&__taskItem {
