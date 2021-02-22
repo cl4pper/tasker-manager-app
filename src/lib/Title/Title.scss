@@ -1,0 +1,33 @@
+.Title {
+	width: 100%;
+	margin: 0;
+	@include fontTitle("md");
+
+	&--small {
+		@include fontTitle("sm");
+	}
+
+	&--tall {
+		@include fontTitle("lg");
+	}
+
+	&--bold {
+		font-weight: bold;
+	}
+
+	&--italic {
+		font-style: italic;
+	}
+
+	&--underline {
+		text-decoration: underline;
+	}
+
+	&--center {
+		text-align: center;
+	}
+
+	&--right {
+		text-align: right;
+	}
+}
