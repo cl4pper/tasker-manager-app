@@ -14,4 +14,11 @@ const CREATE_PROJECT_ROUTE = (token, body) =>
 		}
 	});
 
-export { GET_PROJECTS_ROUTE, CREATE_PROJECT_ROUTE };
+const DELETE_PROJECT_ROUTE = (token, projectId) =>
+	axios.delete('http://localhost:3001/api/project/' + projectId, {
+		headers: {
+			authorization: `Bearer ${token}`
+		}
+	});
+
+export { GET_PROJECTS_ROUTE, CREATE_PROJECT_ROUTE, DELETE_PROJECT_ROUTE };

@@ -7,7 +7,7 @@ import { reducer as projectsReducer } from './projects';
 const rootReducer = combineReducers({
 	auth: authReducer,
 	user: userReducer,
-	projects: projectsReducer,
+	projects: projectsReducer
 });
 
 export { rootReducer };

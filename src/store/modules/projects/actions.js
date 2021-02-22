@@ -35,4 +35,11 @@ const createProjectFailure = () => {
 	};
 };
 
-export { loadProjects, loadProjectsSuccess, loadProjectsFailure, createProject, createProjectSuccess, createProjectFailure };
+export {
+	loadProjects,
+	loadProjectsSuccess,
+	loadProjectsFailure,
+	createProject,
+	createProjectSuccess,
+	createProjectFailure
+};

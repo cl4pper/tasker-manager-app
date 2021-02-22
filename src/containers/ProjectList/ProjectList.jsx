@@ -14,7 +14,6 @@ import { Project } from '@components';
 import { IconLoading } from '@icons';
 
 const ProjectList = () => {
-
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth);
 	const authToken = auth.token;
@@ -40,7 +39,11 @@ const ProjectList = () => {
 	};
 
 	const renderList = () => {
-		return projectsList.length ? renderProjects() : <Text content="No project" tall italic center />;
+		return projectsList.length ? (
+			renderProjects()
+		) : (
+			<Text content="No project" tall italic center />
+		);
 	};
 
 	return (

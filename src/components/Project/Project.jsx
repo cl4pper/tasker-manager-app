@@ -1,19 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 // STYLE
 import './Project.scss';
 
+// STORE
+import { deleteProject } from '@store/modules/projects/requests';
+
 // COMPONENTS
 import { Text, Button, TextInput } from '@lib';
 import { Task } from '@components';
+import { IconTrash } from '@icons';
 
 const Project = (props) => {
 	const { project } = props;
-	const { title, tasks } = project;
+
+	const dispatch = useDispatch();
+	const { _id, title, tasks } = project;
 
 	const [newTask, setNewTask] = useState('');
+
+	function removeProject() {
+		dispatch(deleteProject(_id));
+	}
 
 	// REFACTOR -> TURN INTO ANOTHER SMALLER COMPONENT - OpenTasks
 	const renderOpenList = () => {
@@ -75,6 +86,9 @@ const Project = (props) => {
 		<div className="Project">
 			<div className="Project__top">
 				<Text content={title} tall />
+				<div onClick={() => removeProject()}>
+					<IconTrash className="Project__trash" />
+				</div>
 			</div>
 			{tasks.length ? renderLists() : renderEmptyList()}
 			<div className="Project__bottom">

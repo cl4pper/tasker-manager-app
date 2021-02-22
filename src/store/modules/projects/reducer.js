@@ -37,19 +37,19 @@ function reducer(state = INITIAL_STATE, action) {
 				error: false
 			};
 
-			case 'CREATE_PROJECT_SUCCESS':
+		case 'CREATE_PROJECT_SUCCESS':
 			return {
 				...state,
 				loading: false,
 				error: false
 			};
 
-			case 'CREATE_PROJECT_FAILURE':
-				return {
-					...state,
-					loading: false,
-					error: true
-				};
+		case 'CREATE_PROJECT_FAILURE':
+			return {
+				...state,
+				loading: false,
+				error: true
+			};
 
 		default:
 			return state;

@@ -11,6 +11,7 @@ $baseColor: $color-dark;
 		padding: spacing("md") spacing("sm");
 		color: $color-secondary;
 		background-color: $baseColor;
+		display: flex;
 	}
 
 	&__lists {
@@ -56,5 +57,9 @@ $baseColor: $color-dark;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+
+	&__trash {
+		cursor: pointer;
 	}
 }
