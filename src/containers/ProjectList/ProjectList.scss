@@ -14,10 +14,21 @@
 		padding: 0;
 		margin: 0;
 		list-style: none;
-		display: grid;
-		grid-template-columns: auto auto auto auto;
-		column-gap: 10px;
-		row-gap: 10px;
+		display: flex;
+		justify-content: flex-start;
+
+		@media (max-width: $mobile-width) {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	&__project {
+		margin: spacing("sm");
+
+		@media (max-width: $mobile-width) {
+			margin: spacing("sm") 0;
+		}
 	}
 
 	&__loader {
@@ -27,5 +38,12 @@
 	@keyframes spin {
 		0% { transform: rotate(0deg); }
 		100% { transform: rotate(360deg); }
+	}
+
+	@media (max-width: $mobile-width) {
+		width: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }

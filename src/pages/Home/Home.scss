@@ -1,4 +1,9 @@
 .HomePage {
-	@include responsive("view");
-	// margin-top: 58px;
+	width: 100%;
+	margin-top: 58px;
+
+	@media (max-width: 500px) {
+		margin-top: 58px;
+		padding: 0;
+	}
 }

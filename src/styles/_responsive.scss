@@ -1,6 +1,6 @@
 
 @mixin responsive($size: "view") {
-	$transitSize: 480px;
+	$transitSize: 500px;
 
 	@if $size == "view" {
 		width: 100%;
@@ -18,3 +18,5 @@
 		}
 	}
 }
+
+$mobile-width: 700px;
