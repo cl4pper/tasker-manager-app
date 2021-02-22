@@ -1,4 +1,4 @@
-import { AUTH_ROUTE, ME_ROUTE } from '@utils';
+import { ME_ROUTE } from './api';
 
 // ACTIONS
 import * as authActions from './actions';
