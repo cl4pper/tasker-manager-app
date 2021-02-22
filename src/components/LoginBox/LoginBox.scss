@@ -8,6 +8,7 @@
 	&__line {
 		@extend %LineStructure;
 		display: flex;
+		align-items: center;
 		justify-content: center;
 	}
 

@@ -8,7 +8,7 @@ import './LoginBox.scss';
 import { loginRequest } from '@store/modules/auth/requests';
 
 // COMPONENTS
-import { Box, Button, TextInput, Text, MainLink } from '@lib';
+import { Box, Button, TextInput, MainLink, Title } from '@lib';
 
 const LoginBox = () => {
 	const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const LoginBox = () => {
 	return (
 		<Box>
 			<div className="LoginBox__line">
-				<Text content="Login" />
+				<Title content="Login" small />
 				<MainLink content="Register" href="/signup" />
 			</div>
 			<div className="LoginBox__line">

@@ -9,7 +9,7 @@ import './SignupBox.scss';
 import { signupRequest } from '@store/modules/auth/requests';
 
 // COMPONENTS
-import { Box, Button, TextInput, Text, MainLink } from '@lib';
+import { Box, Button, TextInput, Title, MainLink } from '@lib';
 
 const SignupBox = () => {
 	const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const SignupBox = () => {
 	return (
 		<Box>
 			<div className="SignupBox__line">
-				<Text content="Register" />
+				<Title content="Register" small />
 				<MainLink content="Login" href="/" />
 			</div>
 			<div className="SignupBox__line">

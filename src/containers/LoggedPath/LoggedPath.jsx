@@ -9,10 +9,10 @@ const LoggedPath = (props) => {
 	const authToken = auth.token;
 
 	const condRedirect = () => {
-		if (
-			authToken.length === 0 &&
-			(window.location.pathname !== '/' || window.location.pathname !== '/signup')
-		) {
+		if (authToken.length === 0) {
+			if (window.location.pathname === '/') return <Redirect to="/" />;
+			if (window.location.pathname === '/signup') return <Redirect to="/signup" />;
+
 			return <Redirect to="/" />;
 		}
 
