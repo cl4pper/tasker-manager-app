@@ -1,0 +1,26 @@
+@function sizing($size: "desktop") {
+
+	@if $size == "desktop" {
+    	@return 1000px;
+  	}
+
+	@if $size == "tablet" {
+    	@return 800px;
+  	}
+
+	@if $size == "mobile" {
+    	@return 600px;
+  	}
+};
+
+@mixin mobileView {
+	@media (max-width: sizing("mobile")) {
+		@content
+	}
+};
+
+@mixin tabletView {
+	@media (max-width: sizing("tablet")) {
+		@content
+	}
+}
