@@ -1,1 +1,2 @@
-import '@storybook/addon-knobs/register';
+// matheus - fix addons
+// import '@storybook/addon-knobs/register';
