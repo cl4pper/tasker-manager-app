@@ -1,0 +1,16 @@
+.HomeMessage {
+	width: 100%;
+	padding: 0 spacing("lg");
+
+	&__title {
+		@include fontTitle("lg");
+		margin: 0;
+		margin-bottom: spacing("md");
+	}
+
+	&__message {
+		@include fontText("md");
+		color: $color-text-dark;
+		margin: 0;
+	}
+}
