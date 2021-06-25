@@ -1,0 +1,38 @@
+.User {
+	$photoSizes: 48px;
+
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	@include fontText('lg');
+	color: $color-text-dark;
+
+	&__photo {
+		display: inline-block;
+		vertical-align: middle;
+		width: $photoSizes;
+		height: $photoSizes;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-radius: 50%;
+		border: 2px solid $color-primary;
+		margin-left: spacing("sm");
+	}
+
+	&__info {
+		display: inline-block;
+		vertical-align: middle;
+		text-align: right;
+	}
+
+	&__name {
+		margin: 0;
+	}
+
+	&__logout {
+		@include fontText('sm');
+		color: $color-link;
+		cursor: pointer;
+	}
+}
